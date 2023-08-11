@@ -5,3 +5,10 @@ export function addTodo (title) {
         "title": title
     }
 }
+
+export function toggleLoading (status) {
+    return {
+        "type": "TOGGLE_LOADING",
+        "status": status
+    }
+}

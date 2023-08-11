@@ -6,12 +6,19 @@ const INITIAL_STATE = {
 
 export function TodoReducer (state = INITIAL_STATE, action) {
     console.log(state, action)
-    if (action.title) {
-        return {
-            ...state,
-            tasks: [...state.tasks, action.title]
-        }
+    switch (action.type) {
+        case "ADD_TODO":
+            return {
+                ...state,
+                tasks: [...state.tasks, action.title]
+            }
+        case "TOGGLE_LOADING":
+            return {
+                ...state,
+                isLoading: action.status
+            }
+        default:
+            return state;
     }
-    return state;
     
 }
